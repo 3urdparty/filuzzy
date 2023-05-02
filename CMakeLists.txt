@@ -17,7 +17,7 @@ set(MAIN_LIBRARIES_DIR
 )
 
 set(MAIN_LIBRARIES 
-strfmt
+    strfmt
 )
 
 set(LIBRARY_HEADERS_DIR
@@ -41,10 +41,15 @@ project(${LIBRARY_NAME})
 
 
 
+
+if (TARGET strfmt)
+  # Do something when target found
+else()
 add_library(${LIBRARY_NAME} STATIC
     ${LIBRARY_HEADERS}
     ${LIBRARY_SOURCE}
 )
+endif()
 
 
 #########
@@ -124,8 +129,8 @@ endif()
   
 
 foreach(LIBRARY ${MAIN_LIBRARIES})
-if (NOT EXISTS ${PROJECT_SOURCE_DIR}/libs/${LIBRARY}/CMakeLists.txt)
-	message(FATAL_ERROR The ${LIBRARY} submodule was not downloaded! GIT_SUBMODULE was turned off or failed. Please update submodules and try again.)
+if (NOT EXISTS "${PROJECT_SOURCE_DIR}/libs/${LIBRARY}/CMakeLists.txt")
+	message(FATAL_ERROR "The ${LIBRARY} submodule was not downloaded! GIT_SUBMODULE was turned off or failed. Please update submodules and try again.")
 endif()
 endforeach(LIBRARY)
 

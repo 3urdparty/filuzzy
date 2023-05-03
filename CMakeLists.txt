@@ -17,7 +17,7 @@ set(MAIN_LIBRARIES_DIR
 )
 
 set(MAIN_LIBRARIES 
-
+    strfmt
 )
 
 set(LIBRARY_HEADERS_DIR

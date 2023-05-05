@@ -3,8 +3,13 @@
 # Library #
 ###########
 
+
+# Options
+option(TESTS "Enable tests" OFF)
+
 cmake_minimum_required(VERSION 3.26.0)
 set (CMAKE_CXX_STANDARD 17)
+
 
 # Setting library name
 set(LIBRARY_NAME
@@ -59,6 +64,8 @@ endif()
 set(TESTS_NAME 
     filuzzy_tests
 )
+
+
 
 #Setting directory for test files
 set(TESTS_DIR 
